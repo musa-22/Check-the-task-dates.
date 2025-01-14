@@ -1,0 +1,85 @@
+﻿@model Reminder.Model.Details
+
+<div class="container card ">
+
+    <h1 class="card-header text-center">Edit Task</h1>
+
+    <div class="card-body border-2">
+
+        <form method="post" enctype="multipart/form-data" class="row">
+
+            <div class="p-3">
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="Goal" class="form-control border" />
+
+                    <label asp-for="Goal" class="ms-2">Update Goal</label>
+
+                    <span asp-validation-for="Goal" class="text-danger"></span>
+
+                </div>
+
+
+
+                <div class="form-floating py-2 col-12">
+
+                    <input type="date" asp-for="startData" class="form-control border" />
+
+                    <label asp-for="startData" class="ms-2"></label>
+
+                </div>
+
+
+
+                <div class="form-floating py-2 col-12">
+
+                    <input type="date" asp-for="endData" class="form-control border" />
+
+                    <label asp-for="endData" class="ms-2"></label>
+
+
+
+                </div>
+
+
+
+
+              
+                <div class="row pt-2">
+
+                    <div class="col-6 col-md-3">
+
+                        <button type="submit" class="btn btn-success w-100">Edit Details</button>
+
+                    </div>
+
+                    <div class="col-6 col-md-3">
+
+                        <a asp-controller="" asp-action="Index" type="submit" class="btn btn-dark w-100">Cancel </a>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </form>
+    </div>
+
+</div>
+
+@*excute frontend validation*@
+@section Scripts {
+
+    @{
+
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+
+}

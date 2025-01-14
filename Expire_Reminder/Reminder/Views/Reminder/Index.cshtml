@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Reminder.Model.Details>
+
+<div class="container bg-opacity-10 bg-secondary py-5">
+
+    <h1 class="text-center">Show Deadline</h1>
+
+</div>
+
+<div class="container py-3">
+
+
+    <a class="btn btn-dark float-end" asp-action="Create">Create User</a>
+
+</div>
+
+<div class="container py-4">
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+               
+                <th>Goals</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Days</th>
+                <th>Days Left</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+
+            @foreach (var getList in Model)
+            {
+                <tr>
+
+                    <td>@getList.Goal</td>
+                    
+                    <td>@getList.startData.ToString("dd/MM/yyyy")</td>
+                    <td>@getList.endData.ToString("dd/MM/yyyy")</td>
+                    <td>@getList.totalDay</td>
+
+                        <td><a class=" btn btn-success"> @getList.leftDays </a> </td>
+                                       
+                    <td><a class="btn btn-dark" asp-route-id="@getList.Id"   asp-controller="Reminder" asp-action="Edit">Update</a></td>
+
+                    <td><a class="btn btn-danger" asp-route-id="@getList.Id" asp-controller="Reminder" asp-action="Delete">Delete</a></td>
+
+                </tr>
+            }
+
+
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+</div>
